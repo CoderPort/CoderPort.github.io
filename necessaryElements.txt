@@ -2,27 +2,34 @@
 A clear mission statement (what your nonprofit does and why).
 A brief introduction to your organization.
 A call to action (e.g., "Join Us," "Donate," "Get Involved").
+
 2. About Us
 Your story (why and how the nonprofit started).
 Goals & impact (who you help, success stories, statistics).
 Team members (bios and roles of key people).
+
 3. Programs & Initiatives
 A breakdown of your projects (e.g., coding workshops, mentorship programs, hackathons, scholarships).
 How people can join or benefit from your programs.
+
 4. Get Involved
 Volunteer opportunities (mentors, instructors, event organizers).
 Partnerships (companies, schools, organizations).
 How individuals can contribute skills or resources.
+
 5. Donate / Support Us
 Ways to donate (one-time, recurring, sponsorships).
 Transparency (how funds are used).
 Benefits of supporting the nonprofit.
+
 6. Events & Blog (optional but helpful)
 Upcoming events, workshops, or hackathons.
 A blog with success stories, programming tips, or industry news.
+
 7. Contact Page
 Email, social media, and a contact form.
 FAQs for common inquiries.
+
 8. Legal & Transparency (to build credibility)
 Nonprofit registration details (if applicable).
 Annual reports or financial statements.
