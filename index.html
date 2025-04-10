@@ -121,6 +121,36 @@
       display: block;
       margin: 0 auto;
     }
+    .project-divider {
+      width: 80%;
+      height: 2px;
+      background-color: #ccc;
+      margin: 40px auto;
+    }
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .project-description {
+      max-width: 700px;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #555;
+    }
+    .project-link {
+      color: #5865F2;
+      font-weight: bold;
+      text-align: center;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .project-logo {
+      width: 120px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
@@ -180,17 +210,31 @@
 
   <div class="section" id="projects">
     <h1>Current Projects</h1>
+
+    <!-- DevTick Project -->
     <div style="display: flex; flex-direction: column; align-items: center;">
-      <img src="devticklogo.png" alt="DevTick Logo" style="width: 100px; margin-bottom: 20px; border-radius: 12px;">
-      <h2 style="font-size: 1.5rem;">DevTick</h2>
-      <p style="max-width: 700px;">
+      <img src="DevTickLogo.png" alt="DevTick Logo" class="project-logo">
+      <h2 class="project-title">DevTick</h2>
+      <p class="project-description">
         DevTick is a productivity web app for developers. It includes task management, project categorization, a developer-specific contact book, API key manager, project idea vault, and built-in AI-powered chat for assistance. DevTick helps you stay organized while working on what matters.
       </p>
-      <a href="https://github.com/SarveshwarSenthilKumar/DevTick" target="_blank" style="margin-top: 10px; color: #5865F2; font-weight: bold;">🌐 View on GitHub</a>
+      <a href="https://github.com/SarveshwarSenthilKumar/DevTick" target="_blank" class="project-link">🌐 View on GitHub</a>
+    </div>
+
+    <!-- Line Divider -->
+    <div class="project-divider"></div>
+
+    <!-- Flask Development Template -->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <h2 class="project-title">Flask Development Template</h2>
+      <p class="project-description">
+        The Flask Development Template is a foundational template designed to help developers kickstart their Flask web applications. It includes structured project layouts, essential configurations, SQLite integration, authentication, and more to streamline the development process. This template provides everything you need to get started with building scalable and maintainable Flask apps.
+      </p>
+      <a href="https://github.com/SarveshwarSenthilKumar/Flask-Development-Template" target="_blank" class="project-link">🌐 View on GitHub</a>
     </div>
   </div>
 
-  <div class="section how-to-join" id="howtojoin">
+  <div class="section" id="howtojoin">
     <h1>How to Join</h1>
     <ul>
       <li>📩 Email us at <a href="mailto:officialcoderport@gmail.com">OfficialCoderPort@gmail.com</a></li>
@@ -203,25 +247,14 @@
     </ul>
   </div>
 
-  <div class="section" id="events">
-    <h1>Presentations & Events</h1>
-    <p>
-      One of CoderPort’s missions is to empower the next generation of developers by reaching out to communities, especially schools.
-      We’d love to host a presentation, workshop, or participate in your tech event to inspire and educate! If you're hosting a hackathon, club meeting, or any tech-related gathering, feel free to reach out—it's our privilege to contribute.
-    </p>
+  <div class="footer">
+    <p>CoderPort &copy; 2025. All rights reserved.</p>
   </div>
-
-  <div class="section" id="donate" style="text-align: center;">
-    <iframe src="https://donorbox.org/embed/support-coderport?" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="900px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important" allow="payment"></iframe>
-  </div>
-
-  <footer class="footer">
-    &copy; 2025 CoderPort. Built by passionate developers for developers. All rights reserved.
-  </footer>
 
   <script>
     function toggleMenu() {
-      document.getElementById('navbar').classList.toggle('expanded');
+      const navbar = document.getElementById("navbar");
+      navbar.classList.toggle("expanded");
     }
   </script>
 </body>
