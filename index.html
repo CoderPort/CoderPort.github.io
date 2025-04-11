@@ -8,15 +8,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
+    /* Global Styles */
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom right, #d0eaff, #ffffff);
-      color: #333;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding-bottom: 60px; /* Space for footer */
     }
+    
+    /* Top Navigation Bar - Improved */
     .topnav {
-      background-color: #1f1f1f;
+      background-color: #1c1c1c;
       padding: 15px 5%;
       display: flex;
       justify-content: space-between;
@@ -24,179 +32,364 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      box-sizing: border-box;
       flex-wrap: wrap;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      gap: 20px;
     }
+    
     .topnav img {
-      margin-right: auto;
+      height: 50px;
+      transition: transform 0.3s ease-in-out;
     }
-    .nav-links {
-      margin-left: 30px;
+    
+    .topnav img:hover {
+      transform: scale(1.1);
+    }
+    
+    .nav-container {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 30px;
+      flex-grow: 1;
+      justify-content: flex-end;
     }
+    
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: all 0.3s;
+      padding: 8px 12px;
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+    
+    .nav-links a:hover {
+      background-color: #00e676;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    
     .nav-icons {
       display: flex;
+      gap: 15px;
       align-items: center;
-      gap: 20px;
-      margin-left: auto;
     }
-    .topnav a {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s;
+    
+    .nav-icons a {
+      color: #fff;
+      font-size: 1.3rem;
+      transition: all 0.3s;
+      padding: 5px;
     }
-    .topnav a:hover {
+    
+    .nav-icons a:hover {
       color: #00e676;
+      transform: translateY(-2px);
     }
+    
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
-      gap: 4px;
+      gap: 5px;
+      padding: 8px;
     }
+    
     .hamburger div {
       width: 25px;
       height: 3px;
       background-color: white;
+      transition: 0.3s ease-in-out;
     }
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .mobile-menu a {
-      color: white;
-    }
-    @media (max-width: 768px) {
-      .nav-links, .nav-icons {
-        display: none;
+    
+    @media (max-width: 900px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px;
       }
+      
+      .nav-links {
+        gap: 10px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .topnav {
+        padding: 15px 20px;
+      }
+      
+      .nav-container {
+        display: none;
+        width: 100%;
+        order: 1;
+        margin-top: 15px;
+      }
+      
+      .topnav.expanded .nav-container {
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+      
+      .nav-icons {
+        justify-content: center;
+        width: 100%;
+        padding: 10px 0;
+      }
+      
       .hamburger {
         display: flex;
       }
-      .topnav.expanded .mobile-menu {
-        display: flex;
-      }
     }
+
+    /* Section Styles */
     .section {
-      padding: 4rem 5%;
-      max-width: 1000px;
-      margin: auto;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      margin-bottom: 40px;
+      width: 80%;
+      margin: 40px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.2s ease-out;
+      text-align: center;
     }
     .section h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+      color: #ddd;
     }
     .section p {
-      text-align: center;
       font-size: 1.1rem;
-      line-height: 1.6;
+      line-height: 1.8;
+      color: #bbb;
     }
-    .how-to-join ul {
-      list-style: none;
-      padding: 0;
-      font-size: 1rem;
-    }
-    .how-to-join li {
-      margin: 12px 0;
-    }
-    .footer {
-      background-color: #1f1f1f;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-    iframe {
-      border-radius: 8px;
-      display: block;
-      margin: 0 auto;
-    }
-    .project-divider {
-      width: 80%;
-      height: 2px;
-      background-color: #ccc;
-      margin: 40px auto;
-    }
+    /* Project Cards */
     .project-title {
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
       margin-bottom: 10px;
-      color: #333;
     }
     .project-description {
       max-width: 700px;
-      margin-bottom: 10px;
+      margin: 0 auto;
       text-align: center;
-      color: #555;
+      color: #ddd;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
     }
     .project-link {
-      color: #5865F2;
-      font-weight: bold;
-      text-align: center;
-      display: inline-block;
-      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #00e676;
+      font-weight: 600;
+      display: block;
+      margin-top: 15px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .project-link:hover {
+      color: #fff;
     }
     .project-logo {
       width: 120px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       margin-bottom: 10px;
-      border-radius: 8px;
+      transition: transform 0.3s ease-out;
     }
+    .project-logo:hover {
+      transform: scale(1.1);
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1f1f1f;
+      color: #bbb;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+
+    /* Donate Section */
+    #donate form {
+      text-align: center;
+      margin-top: 20px;
+    }
+    #donate input[type="image"] {
+      border: none;
+      width: 200px;
+      margin: 20px 0;
+      transition: transform 0.3s ease;
+    }
+    #donate input[type="image"]:hover {
+      transform: scale(1.05);
+    }
+
+    /* Center Image */
+    #benefits-image {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 15px;
+      margin: 20px auto;
+    }
+
+    /* Platform-Specific Join Buttons */
+    .join-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .join-button {
+      padding: 10px 20px;
+      font-weight: 600;
+      border-radius: 5px;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 140px;
+      justify-content: center;
+    }
+    
+    .join-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .join-button.email {
+      background-color: #BB001B;
+      color: white;
+    }
+    
+    .join-button.email:hover {
+      background-color: #d50000;
+    }
+    
+    .join-button.discord {
+      background-color: #5865F2;
+      color: white;
+    }
+    
+    .join-button.discord:hover {
+      background-color: #7289DA;
+    }
+    
+    .join-button.instagram {
+      background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+      color: white;
+    }
+    
+    .join-button.instagram:hover {
+      background: linear-gradient(45deg, #E1306C, #C13584, #833AB4, #5851DB, #405DE6);
+    }
+    
+    .join-button.tiktok {
+      background-color: #000000;
+      color: white;
+    }
+    
+    .join-button.tiktok:hover {
+      background-color: #FE2C55;
+    }
+    
+    .join-button.twitter {
+      background-color: #000000;
+      color: white;
+    }
+    
+    .join-button.twitter:hover {
+      background-color: #1DA1F2;
+    }
+    
+    .join-button.github {
+      background-color: #333333;
+      color: white;
+    }
+    
+    .join-button.github:hover {
+      background-color: #4078c0;
+    }
+
   </style>
 </head>
 <body>
   <div class="topnav" id="navbar">
-    <img src="CoderPortLogoIcon.png" alt="CoderPort Logo" style="height: 50px;">
-    <div class="hamburger" onclick="toggleMenu()">
+    <img src="CoderPortLogoIcon.png" alt="CoderPort Logo">
+    
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="#mission">About Us</a>
+        <a href="#benefits">Why Join?</a>
+        <a href="#howtojoin">Get Involved</a>
+        <a href="#donate">Donate</a>
+      </div>
+      <div class="nav-icons">
+        <a href="mailto:OfficialCoderPort@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://discord.gg/QhupTjUf" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://www.instagram.com/coderport_social/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@coderport" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://x.com/CoderPortOrg" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com/CoderPort" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+    
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <div></div>
       <div></div>
       <div></div>
-    </div>
-    <div class="nav-links">
-      <a href="#mission">About Us</a>
-      <a href="#benefits">Why Join?</a>
-      <a href="#howtojoin">Get Involved</a>
-      <a href="#donate">Donate</a>
-    </div>
-    <div class="nav-icons">
-      <a href="mailto:OfficialCoderPort@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-      <a href="https://discord.gg/QhupTjUf"><i class="fa-brands fa-discord"></i></a>
-      <a href="https://www.instagram.com/coderport_social/"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@coderport"><i class="fa-brands fa-tiktok"></i></a>
-      <a href="https://x.com/CoderPortOrg"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="https://github.com/CoderPort"><i class="fa-brands fa-github"></i></a>
-    </div>
-    <div class="mobile-menu">
-      <a href="#mission">About Us</a>
-      <a href="#benefits">Why Join?</a>
-      <a href="#howtojoin">Get Involved</a>
-      <a href="#donate">Donate</a>
-      <a href="mailto:OfficialCoderPort@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-      <a href="https://discord.gg/QhupTjUf"><i class="fa-brands fa-discord"></i></a>
-      <a href="https://www.instagram.com/coderport_social/"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@coderport"><i class="fa-brands fa-tiktok"></i></a>
-      <a href="https://x.com/CoderPortOrg"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="https://github.com/CoderPort"><i class="fa-brands fa-github"></i></a>
     </div>
   </div>
 
   <div class="section" style="text-align: center;">
-    <img src="CoderPortLogoIcon.png" alt="CoderPort Logo" style="width: 120px; border-radius: 10px;">
+    <img src="CoderPortLogoIcon.png" alt="CoderPort Logo" class="project-logo">
     <h1>Welcome to CoderPort!</h1>
-    <h2 style="font-weight: 400; font-size: 1.5rem;">Where Developers Dock, Build, and Innovate!</h2>
+    <h2>Where Developers Dock, Build, and Innovate!</h2>
     <p>CoderPort is a non-profit organization dedicated to creating a hub for programmers to interact, learn, and innovate together.</p>
   </div>
-
-  <hr style="margin: 40px auto; width: 80%; border: 0.5px solid #ccc;">
 
   <div class="section" id="mission">
     <h1>Our Mission (CoderPort.Mission)</h1>
@@ -205,60 +398,41 @@
 
   <div class="section" id="benefits">
     <h1>Why Join?</h1>
-    <img src="CoderPortBenefits.png" alt="CoderPort Benefits" style="width: 100%; max-width: 700px; display: block; margin: auto; border-radius: 10px;">
-  </div>
-
-  <div class="section" id="projects">
-    <h1>Current Projects</h1>
-
-    <!-- DevTick Project -->
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <img src="DevTickLogo.png" alt="DevTick Logo" class="project-logo">
-      <h2 class="project-title">DevTick</h2>
-      <p class="project-description">
-        DevTick is a productivity web app for developers. It includes task management, project categorization, a developer-specific contact book, API key manager, project idea vault, and built-in AI-powered chat for assistance. DevTick helps you stay organized while working on what matters.
-      </p>
-      <a href="https://github.com/SarveshwarSenthilKumar/DevTick" target="_blank" class="project-link">🌐 View on GitHub</a>
-    </div>
-
-    <!-- Line Divider -->
-    <div class="project-divider"></div>
-
-    <!-- Flask Development Template -->
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <h2 class="project-title">Flask Development Template</h2>
-      <p class="project-description">
-        The Flask Development Template is a foundational template designed to help developers kickstart their Flask web applications. It includes structured project layouts, essential configurations, SQLite integration, authentication, and more to streamline the development process. This template provides everything you need to get started with building scalable and maintainable Flask apps.
-      </p>
-      <a href="https://github.com/SarveshwarSenthilKumar/Flask-Development-Template" target="_blank" class="project-link">🌐 View on GitHub</a>
-    </div>
+    <img src="CoderPortBenefits.png" alt="CoderPort Benefits" id="benefits-image">
   </div>
 
   <div class="section" id="howtojoin">
     <h1>How to Join</h1>
-    <ul>
-      <li>📩 Email us at <a href="mailto:officialcoderport@gmail.com">OfficialCoderPort@gmail.com</a></li>
-      <li>🔗 Join our <a href="https://discord.gg/QhupTjUf">Discord Server</a></li>
-      <li>📸 Follow us on <a href="https://www.instagram.com/coderport_social/">Instagram</a></li>
-      <li>🎵 Follow us on <a href="https://www.tiktok.com/@coderport">TikTok</a></li>
-      <li>🐦 Follow us on <a href="https://x.com/CoderPortOrg">X (Twitter)</a></li>
-      <li>🖥️ Join our <a href="https://github.com/CoderPort">GitHub Organization</a></li>
-      <li>❤️ Support us by donating below!</li>
-    </ul>
+    <div class="join-buttons">
+      <a href="mailto:officialcoderport@gmail.com" class="join-button email">
+        <i class="fas fa-envelope"></i> Email Us
+      </a>
+      <a href="https://discord.gg/QhupTjUf" class="join-button discord">
+        <i class="fab fa-discord"></i> Discord
+      </a>
+      <a href="https://www.instagram.com/coderport_social/" class="join-button instagram">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://www.tiktok.com/@coderport" class="join-button tiktok">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+      <a href="https://x.com/CoderPortOrg" class="join-button twitter">
+        <i class="fab fa-x-twitter"></i> Twitter
+      </a>
+      <a href="https://github.com/CoderPort" class="join-button github">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
   </div>
 
   <div class="section" id="donate">
     <h1>Support CoderPort</h1>
-    <p style="text-align: center; max-width: 600px; margin: auto;">
-      Every donation helps us reach more aspiring developers and create better tools, resources, and events. Thank you for your support! Work In Progress.
-    </p>
-    <form action="https://www.paypal.com/donate" method="post" target="_blank" style="text-align: center; margin-top: 20px;">
+    <p>Every donation helps us reach more aspiring developers and create better tools, resources, and events. Thank you for your support!</p>
+    <form action="https://www.paypal.com/donate" method="post" target="_blank">
       <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID_HERE" />
-      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="Donate with PayPal" alt="Donate with PayPal button" />
-      <img alt="" border="0" src="https://www.paypal.com/en_CA/i/scr/pixel.gif" width="1" height="1" />
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="Donate with PayPal" />
     </form>
   </div>
-  
 
   <div class="footer">
     <p>CoderPort &copy; 2025. All rights reserved.</p>
