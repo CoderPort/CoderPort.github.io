@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoderPort - Developer Innovation Hub</title>
+  <title>CoderPort - Our Projects</title>
   <link rel="shortcut icon" href="CoderPortLogoIcon.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
-    /* Global Variables */
+    /* Reuse all styles from index.html */
     :root {
       --primary: #00e676;
       --primary-dark: #00c853;
@@ -22,8 +22,7 @@
       --glass-border: rgba(255, 255, 255, 0.1);
       --shadow: 0 25px 50px -12px rgba(0, 230, 118, 0.15);
     }
-    
-    /* Base Styles */
+
     * {
       margin: 0;
       padding: 0;
@@ -881,6 +880,96 @@
       box-shadow: 0 8px 25px rgba(0, 230, 118, 0.4);
       background: linear-gradient(135deg, #00c853 0%, #5e35b1 100%);
     }
+    
+    /* Add project-specific styles */
+    .project-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      padding: 40px;
+      margin: 40px 0;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px) translateZ(20px);
+      box-shadow: 0 15px 40px rgba(0, 230, 118, 0.2);
+    }
+    
+    .project-logo {
+      width: 120px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease-out;
+    }
+    
+    .project-logo:hover {
+      transform: scale(1.1);
+    }
+    
+    .project-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+    
+    .project-description {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      color: #ddd;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .project-link {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--gradient);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      margin: 10px 5px;
+      box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
+    }
+    
+    .project-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 230, 118, 0.4);
+    }
+    
+    .upcoming-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+    
+    .feature-badge {
+      background: rgba(0, 230, 118, 0.1);
+      border: 1px solid #00e676;
+      border-radius: 50px;
+      padding: 8px 15px;
+      font-size: 0.9rem;
+    }
+    
+    .upcoming-card {
+      background: rgba(98, 0, 234, 0.1);
+      border-color: #6200ea;
+    }
+    
+    .upcoming-btn {
+      background: #6200ea !important;
+    }
+    
+    .upcoming-btn:hover {
+      background: #7c4dff !important;
+    }
   </style>
 </head>
 <body>
@@ -897,25 +986,18 @@
   <!-- Navigation -->
   <nav class="topnav" id="navbar">
     <img src="CoderPortLogoIcon.png" alt="CoderPort Logo">
-    
     <div class="nav-container" id="nav-container">
       <div class="nav-links">
-        <a href="#mission">About Us</a>
-        <a href="#benefits">Why Join?</a>
-        <a href="#stats">Our Impact</a>
-        <a href="#howtojoin">Get Involved</a>
-        <a href="#donate">Donate</a>
+        <a href="index.html">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#upcoming">Upcoming</a>
+        <a href="index.html#howtojoin">Join Us</a>
       </div>
       <div class="nav-icons">
         <a href="mailto:OfficialCoderPort@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://discord.gg/QhupTjUf" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
-        <a href="https://www.instagram.com/coderport_social/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@coderport" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="https://x.com/CoderPortOrg" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
         <a href="https://github.com/CoderPort" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
       </div>
     </div>
-    
     <div class="hamburger" id="hamburger" aria-label="Menu">
       <div></div>
       <div></div>
@@ -924,182 +1006,76 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero" >
-    <div class="hero-content" style="margin-top: 90px;">
-      <h1>Welcome to CoderPort</h1>
+  <section class="hero">
+    <div class="hero-content" style="margin-top: 30px;">
+      <h1>Our Projects</h1>
       <img src="CoderPortLogoIcon.png" alt="CoderPort Logo" class="hero-logo">
-      <h2>Where Developers Dock, Build, and Innovate!</h2>
-      <p>CoderPort is a non-profit organization dedicated to creating a hub for programmers to interact, learn, and innovate together. Join our growing community of passionate developers.</p>
-      <a href="#howtojoin" class="cta-button">Join Our Community</a>
+      <h2>Building Tools for Developers</h2>
+      <p>Explore our open-source projects designed to make developers' lives easier and more productive.</p>
     </div>
   </section>
 
-  <!-- Mission Section -->
-  <section class="section" id="mission">
-    <h1>Our Mission</h1>
-    <p class="text-center">We help developers work efficiently while supporting new coders in our increasingly digital world. Our platform bridges the gap between learning and professional development.</p>
-    
-    <div class="stats">
-      <div class="stat-item">
-        <div class="stat-number">10x</div>
-        <div class="stat-label">Dedicated Developers</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">5+</div>
-        <div class="stat-label">Active Projects</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">Coming Soon</div>
-        <div class="stat-label">Community Events</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">24/7</div>
-        <div class="stat-label">Developer Support</div>
-      </div>
-    </div>
+  <!-- Projects Section -->
+  <div class="section" id="projects">
+    <h1>Current Projects</h1>
 
-    <div style="text-align: center; margin-top: 40px;">
-      <a href="projects.html#projects" class="view-projects-btn">
-        Explore Our Projects
+    <!-- DevTick Project -->
+    <div class="project-card">
+      <img src="devticklogo.png" alt="DevTick Logo" class="project-logo">
+      <h2 class="project-title">DevTick</h2>
+      <p class="project-description">
+        DevTick is a productivity web app for developers. It includes task management, project categorization, 
+        a developer-specific contact book, API key manager, project idea vault, and built-in AI-powered chat 
+        for assistance. DevTick helps you stay organized while working on what matters.
+      </p>
+      <a href="https://github.com/SarveshwarSenthilKumar/DevTick" target="_blank" class="project-link">
+        <i class="fab fa-github"></i> View on GitHub
       </a>
     </div>
-  </section>
 
-  <!-- Benefits Section -->
-  <section class="section" id="benefits">
-    <h1>Why Join CoderPort?</h1>
-    <p class="text-center mb-30">Discover the advantages of being part of our thriving developer community</p>
+    <!-- Flask Development Template -->
+    <div class="project-card">
+      <h2 class="project-title">Flask Development Template</h2>
+      <p class="project-description">
+        The Flask Development Template is a foundational template designed to help developers kickstart their 
+        Flask web applications. It includes structured project layouts, essential configurations, SQLite 
+        integration, authentication, and more to streamline the development process.
+      </p>
+      <a href="https://github.com/SarveshwarSenthilKumar/Flask-Development-Template" target="_blank" class="project-link">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- Upcoming Project Section -->
+  <div class="section" id="upcoming">
+    <h1>Coming Soon</h1>
     
-    <!-- Added the CoderPortBenefits.png image here -->
-    <img src="CoderPortBenefits.png" alt="CoderPort Benefits" class="benefits-image">
-    
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <i class="fas fa-users"></i>
-        </div>
-        <h3>Global Network</h3>
-        <p>Connect with developers worldwide, collaborate on projects, and expand your professional network.</p>
+    <div class="project-card upcoming-card">
+      <img src="CoderPortLogoIcon.png" alt="CoderPort Logo" class="project-logo">
+      <h2 class="project-title">CoderPort Platform</h2>
+      <p class="project-description">
+        The official CoderPort platform - built by programmers for programmers. A central hub for developer 
+        collaboration, learning, and support. Connect with other developers, get help with your projects, 
+        and discover trending technologies.
+      </p>
+      
+      <div class="upcoming-features">
+        <span class="feature-badge">Programming Help Requests</span>
+        <span class="feature-badge">Developer Events Calendar</span>
+        <span class="feature-badge">Find Collaborators</span>
+        <span class="feature-badge">Trending GitHub Repos</span>
+        <span class="feature-badge">Code Snippet Analysis</span>
+        <span class="feature-badge">Developer Newsletter</span>
+        <span class="feature-badge">LinkedIn Integration</span>
+        <span class="feature-badge">Community Forums</span>
       </div>
       
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <i class="fas fa-graduation-cap"></i>
-        </div>
-        <h3>Learning Resources</h3>
-        <p>Access exclusive tutorials, workshops, and mentorship programs to accelerate your growth.</p>
-      </div>
-      
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <i class="fas fa-briefcase"></i>
-        </div>
-        <h3>Career Opportunities</h3>
-        <p>Get noticed by tech companies and find your dream job through our partner network.</p>
-      </div>
-      
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <i class="fas fa-code"></i>
-        </div>
-        <h3>Open Source</h3>
-        <p>Contribute to meaningful open-source projects and build your portfolio with real-world experience.</p>
-      </div>
-      
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <i class="fas fa-calendar-alt"></i>
-        </div>
-        <h3>Events & Hackathons</h3>
-        <p>Participate in coding competitions, hackathons, and tech talks with industry leaders.</p>
-      </div>
-      
-      <div class="benefit-card">
-        <div class="benefit-icon">
-          <i class="fas fa-heart"></i>
-        </div>
-        <h3>Non-Profit</h3>
-        <p>Be part of a community-driven initiative focused on making tech education accessible to all.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section class="section" id="stats">
-    <h1>Our Impact</h1>
-    <p class="text-center mb-30">Join thousands of developers who are already benefiting from our community</p>
-    
-    <div class="stats">
-      <div class="stat-item">
-        <div class="stat-number">Growing</div>
-        <div class="stat-label">Passionate Community</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">Multiple</div>
-        <div class="stat-label">Open Source Projects</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">Global</div>
-        <div class="stat-label">Diverse Contributors</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">24/7</div>
-        <div class="stat-label">Learning Resources</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How to Join Section -->
-  <section class="section" id="howtojoin">
-    <h1>Get Involved</h1>
-    <p class="text-center mb-30">Join our community through any of these platforms</p>
-    
-    <div class="join-buttons">
-      <a href="mailto:officialcoderport@gmail.com" class="join-button email">
-        <i class="fas fa-envelope"></i> Email Us
-      </a>
-      <a href="https://discord.gg/QhupTjUf" class="join-button discord">
-        <i class="fab fa-discord"></i> Discord
-      </a>
-      <a href="https://www.instagram.com/coderport_social/" class="join-button instagram">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-      <a href="https://www.tiktok.com/@coderport" class="join-button tiktok">
-        <i class="fab fa-tiktok"></i> TikTok
-      </a>
-      <a href="https://x.com/CoderPortOrg" class="join-button twitter">
-        <i class="fab fa-x-twitter"></i> Twitter
-      </a>
-      <a href="https://github.com/CoderPort" class="join-button github">
-        <i class="fab fa-github"></i> GitHub
+      <a href="index.html#howtojoin" class="project-link upcoming-btn">
+        <i class="fas fa-bell"></i> Join Waitlist
       </a>
     </div>
-  </section>
-
-  <!-- Donate Section -->
-  <section class="section" id="donate">
-    <h1>Support Our Mission</h1>
-    <p class="text-center">Every donation helps us reach more aspiring developers and create better tools, resources, and events.</p>
-    
-    <div class="donate-card">
-      <div class="donate-front">
-        <div class="donate-icon">
-          <i class="fas fa-heart"></i>
-        </div>
-        <h3>Help Us Grow</h3>
-        <p>Your support enables us to maintain our platform, create new resources, and organize community events.</p>
-        <p>Click the card to donate</p>
-      </div>
-      <div class="donate-back">
-        <h3>Make a Difference</h3>
-        <p>Choose your donation amount and help shape the future of developer education.</p>
-        <form action="https://www.paypal.com/donate" method="post" target="_blank">
-          <input type="hidden" name="hosted_button_id" value="YOUR_PAYPAL_BUTTON_ID_HERE" />
-          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="Donate with PayPal" alt="Donate with PayPal button" />
-        </form>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -1109,10 +1085,6 @@
         <p>Where Developers Dock, Build, and Innovate!</p>
         <div class="nav-icons" style="justify-content: flex-start; margin-top: 20px;">
           <a href="mailto:OfficialCoderPort@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-          <a href="https://discord.gg/QhupTjUf" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
-          <a href="https://www.instagram.com/coderport_social/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@coderport" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://x.com/CoderPortOrg" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="https://github.com/CoderPort" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
         </div>
       </div>
@@ -1120,32 +1092,19 @@
       <div class="footer-column">
         <h3>Quick Links</h3>
         <ul class="footer-links">
-          <li><a href="#mission">About Us</a></li>
-          <li><a href="#benefits">Benefits</a></li>
-          <li><a href="#howtojoin">Join Community</a></li>
-          <li><a href="#donate">Donate</a></li>
-          <li><a href="#">Blog</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#upcoming">Upcoming</a></li>
+          <li><a href="index.html#howtojoin">Join Community</a></li>
         </ul>
       </div>
       
       <div class="footer-column">
         <h3>Resources</h3>
         <ul class="footer-links">
+          <li><a href="https://github.com/SarveshwarSenthilKumar/DevTick" target="_blank">DevTick</a></li>
+          <li><a href="https://github.com/SarveshwarSenthilKumar/Flask-Development-Template" target="_blank">Flask Template</a></li>
           <li><a href="#">Documentation</a></li>
-          <li><a href="#">Tutorials</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="#">Events</a></li>
-          <li><a href="#">Career Center</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-column">
-        <h3>Legal</h3>
-        <ul class="footer-links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Code of Conduct</a></li>
-          <li><a href="#">Cookie Policy</a></li>
         </ul>
       </div>
     </div>
@@ -1156,7 +1115,7 @@
   </footer>
 
   <script>
-    // Mobile Menu Toggle
+    // Reuse all JavaScript from index.html
     const hamburger = document.getElementById('hamburger');
     const navContainer = document.getElementById('nav-container');
     
@@ -1165,7 +1124,6 @@
       navContainer.classList.toggle('active');
     });
     
-    // Navbar Scroll Effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -1175,7 +1133,6 @@
       }
     });
     
-    // Create Floating Particles
     const particlesContainer = document.getElementById('particles');
     const particleCount = 30;
     
@@ -1183,7 +1140,6 @@
       const particle = document.createElement('div');
       particle.classList.add('particle');
       
-      // Random properties
       const size = Math.random() * 10 + 5;
       const posX = Math.random() * 100;
       const duration = Math.random() * 20 + 10;
@@ -1198,9 +1154,7 @@
       particlesContainer.appendChild(particle);
     }
     
-    // 3D Hover Effects for Sections
     const sections = document.querySelectorAll('.section');
-    
     sections.forEach(section => {
       section.addEventListener('mousemove', (e) => {
         const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
@@ -1218,31 +1172,17 @@
       });
     });
     
-    // Animate elements on scroll
-    const observerOptions = {
-      threshold: 0.1
-    };
-    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.style.animation = `fadeIn 1s forwards`;
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.1 });
     
     document.querySelectorAll('.section, .hero-content > *').forEach(el => {
       el.style.opacity = '0';
       observer.observe(el);
-    });
-
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
     });
   </script>
 </body>
